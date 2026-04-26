@@ -1,5 +1,6 @@
 import alchemyBrewImg from './assets/alchemy-brew.png'
 import microhabitImg from './assets/microhabit.png'
+import profileImg from './assets/profile.jpg'
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="font-medium text-earth-700">Portfolio</span>
+          <span className="font-medium text-earth-700">Hadassah Roberts</span>
           <div className="flex gap-6 text-sm">
             <a href="#about" className="hover:text-earth-600 transition-colors">About</a>
             <a href="#projects" className="hover:text-earth-600 transition-colors">Projects</a>
@@ -18,14 +19,23 @@ function App() {
 
       {/* Hero Section */}
       <header className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-earth-600 mb-2 tracking-wide text-sm uppercase">Developer</p>
-          <h1 className="text-5xl md:text-6xl font-light text-stone-900 mb-6 leading-tight">
-            Hadassah Roberts
-          </h1>
-          <p className="text-xl text-stone-600 max-w-2xl leading-relaxed">
-            Fullstack Developer passionate about creating impactful change through technology.
-          </p>
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <p className="text-earth-600 mb-2 tracking-wide text-sm uppercase">Developer</p>
+            <h1 className="text-5xl md:text-6xl font-light text-stone-900 mb-6 leading-tight">
+              Hadassah Roberts
+            </h1>
+            <p className="text-xl text-stone-600 max-w-2xl leading-relaxed">
+              Fullstack Developer passionate about creating impactful change through technology.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <img
+              src={profileImg}
+              alt="Hadassah Roberts"
+              className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-earth-200 shadow-lg"
+            />
+          </div>
         </div>
       </header>
 
