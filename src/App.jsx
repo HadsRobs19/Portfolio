@@ -1,3 +1,6 @@
+import alchemyBrewImg from './assets/alchemy-brew.png'
+import microhabitImg from './assets/microhabit.png'
+
 function App() {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
@@ -18,11 +21,10 @@ function App() {
         <div className="max-w-4xl mx-auto">
           <p className="text-earth-600 mb-2 tracking-wide text-sm uppercase">Developer</p>
           <h1 className="text-5xl md:text-6xl font-light text-stone-900 mb-6 leading-tight">
-            Your Name
+            Hadassah Roberts
           </h1>
           <p className="text-xl text-stone-600 max-w-2xl leading-relaxed">
-            A brief tagline about who you are and what you do.
-            Keep it concise and memorable.
+            Fullstack Developer passionate about creating impactful change through technology.
           </p>
         </div>
       </header>
@@ -33,17 +35,14 @@ function App() {
           <h2 className="text-sm uppercase tracking-wide text-earth-600 mb-8">About</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <p className="text-stone-700 leading-relaxed mb-4">
-                Write a paragraph about your background, experience, and what drives you as a developer.
-              </p>
               <p className="text-stone-700 leading-relaxed">
-                What makes you unique? What are you passionate about building?
+                I am a senior at the University of Central Florida, studying fullstack Web and App development. My goal is to connect my passion for problem solving and logic to my creative abilities as I grow in my field. I am passionate about the opportunity to create impactful changes in the world with technology. Through this, I hope to connect with other like minded individuals in the tech field and continue to contribute to the world of software development.
               </p>
             </div>
             <div>
               <h3 className="text-stone-900 font-medium mb-4">Skills</h3>
               <div className="flex flex-wrap gap-2">
-                {['JavaScript', 'React', 'Node.js', 'CSS', 'Git'].map((skill) => (
+                {['JavaScript', 'React', 'Node.js', 'Python', 'Java', 'Golang', 'C/C++', 'CSS', 'Git'].map((skill) => (
                   <span
                     key={skill}
                     className="px-3 py-1 bg-earth-50 text-earth-700 text-sm border border-earth-200"
@@ -66,27 +65,30 @@ function App() {
           <article className="mb-16 pb-16 border-b border-stone-200">
             <div className="grid md:grid-cols-5 gap-8">
               <div className="md:col-span-3">
-                <h3 className="text-2xl font-medium text-stone-900 mb-2">Project Title</h3>
+                <h3 className="text-2xl font-medium text-stone-900 mb-2">Alchemy Brew</h3>
                 <p className="text-stone-600 mb-4 leading-relaxed">
-                  A brief description of what this project does and the problem it solves.
-                  Make it clear and compelling for someone who has never seen it.
+                  A multi-page static website for a fictional coffee shop, built with Claude Code and deployed to Netlify. I expanded beyond the base requirements by implementing a fully interactive blog system featuring post likes, nested comments with replies, social media sharing, and related post suggestions. The site also integrates Google Maps API to display the shop location.
                 </p>
                 <div className="flex gap-4 mb-6">
                   <a
-                    href="#"
+                    href="https://alchemy-brew.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-earth-600 hover:text-earth-700 underline underline-offset-4"
                   >
                     Live Demo
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/HadsRobs19/coffee-shop-site"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-stone-500 hover:text-stone-700 underline underline-offset-4"
                   >
                     GitHub
                   </a>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'Tailwind CSS', 'Node.js'].map((tech) => (
+                  {['HTML', 'CSS', 'JavaScript', 'Google Maps API'].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 py-1 bg-stone-100 text-stone-600 text-xs"
@@ -97,16 +99,17 @@ function App() {
                 </div>
               </div>
               <div className="md:col-span-2">
-                <div className="bg-stone-100 aspect-video flex items-center justify-center border border-stone-200">
-                  <span className="text-stone-400 text-sm">Screenshot</span>
-                </div>
+                <img
+                  src={alchemyBrewImg}
+                  alt="Alchemy Brew coffee shop website homepage"
+                  className="w-full aspect-video object-cover object-top border border-stone-200"
+                />
               </div>
             </div>
             <div className="mt-8 p-6 bg-earth-50 border-l-2 border-earth-400">
               <h4 className="text-sm font-medium text-earth-700 mb-2">Retrospective</h4>
               <p className="text-stone-600 text-sm leading-relaxed">
-                What would you do differently? What did you learn?
-                Be honest and show your growth mindset.
+                If I were to revisit this project, I would implement incremental testing throughout the development cycle rather than consolidating testing at the end. This approach would allow for earlier bug detection and more efficient debugging. Working with AI-assisted development tools taught me the value of iterative prompting—breaking complex features into smaller, focused requests not only produces better results but also deepens understanding of the underlying code and architecture.
               </p>
             </div>
           </article>
@@ -115,26 +118,30 @@ function App() {
           <article>
             <div className="grid md:grid-cols-5 gap-8">
               <div className="md:col-span-3">
-                <h3 className="text-2xl font-medium text-stone-900 mb-2">Second Project</h3>
+                <h3 className="text-2xl font-medium text-stone-900 mb-2">MicroHabit</h3>
                 <p className="text-stone-600 mb-4 leading-relaxed">
-                  Another project description. Focus on impact and what you built.
+                  A habit tracking app that helps you build better routines through small, daily micro-habits. Features include custom habit creation, daily checkbox tracking, per-habit 7-day visualization with streak counters, overall progress summaries with visual progress bars, and inline edit/delete functionality. All data persists locally across sessions.
                 </p>
                 <div className="flex gap-4 mb-6">
                   <a
-                    href="#"
+                    href="https://microhabittracker.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-earth-600 hover:text-earth-700 underline underline-offset-4"
                   >
                     Live Demo
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/HadsRobs19/MicroHabit-Tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-stone-500 hover:text-stone-700 underline underline-offset-4"
                   >
                     GitHub
                   </a>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Python', 'Flask', 'PostgreSQL'].map((tech) => (
+                  {['React', 'CSS', 'localStorage', 'GitHub Copilot'].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 py-1 bg-stone-100 text-stone-600 text-xs"
@@ -145,15 +152,17 @@ function App() {
                 </div>
               </div>
               <div className="md:col-span-2">
-                <div className="bg-stone-100 aspect-video flex items-center justify-center border border-stone-200">
-                  <span className="text-stone-400 text-sm">Screenshot</span>
-                </div>
+                <img
+                  src={microhabitImg}
+                  alt="MicroHabit tracker app interface"
+                  className="w-full aspect-video object-cover object-top border border-stone-200"
+                />
               </div>
             </div>
             <div className="mt-8 p-6 bg-earth-50 border-l-2 border-earth-400">
               <h4 className="text-sm font-medium text-earth-700 mb-2">Retrospective</h4>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Share what you learned and what you would improve.
+                To scale this application, I would migrate from localStorage to a persistent database solution and implement user authentication for personalized, cross-device access. Future iterations could incorporate social features—such as habit sharing and accountability partners—to increase user engagement. I would also refine the UX for inline editing to reduce friction and make habit management more intuitive.
               </p>
             </div>
           </article>
@@ -169,19 +178,23 @@ function App() {
           </p>
           <div className="flex justify-center gap-6">
             <a
-              href="mailto:your@email.com"
+              href="mailto:hadassahplaysflute@gmail.com"
               className="px-6 py-3 bg-earth-600 hover:bg-earth-700 text-white transition-colors"
             >
               Email Me
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/hadassah-r/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 border border-stone-600 hover:border-stone-400 transition-colors"
             >
               LinkedIn
             </a>
             <a
-              href="#"
+              href="https://github.com/HadsRobs19"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 border border-stone-600 hover:border-stone-400 transition-colors"
             >
               GitHub
@@ -192,7 +205,7 @@ function App() {
 
       {/* Footer */}
       <footer className="py-6 px-6 bg-stone-950 text-stone-500 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} Your Name</p>
+        <p>&copy; {new Date().getFullYear()} Hadassah Roberts</p>
       </footer>
     </div>
   )
