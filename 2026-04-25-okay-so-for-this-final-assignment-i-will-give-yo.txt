@@ -1,0 +1,1732 @@
+
+╭─── Claude Code v2.1.12 ──────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                 Welcome back Hads!                 │ started                 │
+│                                                    │ Run /init to create a … │
+│                      ▗ ▗   ▖ ▖                     │ ─────────────────────── │
+│                                                    │ Recent activity         │
+│                        ▘▘ ▝▝                       │ No recent activity      │
+│                                                    │                         │
+│     Opus 4.5 · Claude Pro ·                        │                         │
+│     hadassahplaysflute@gmail.com's Organization    │                         │
+│            ~/Documents/GitHub/Portfolio            │                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+❯ okay, so for this final assignment, i will give you the base requirements 
+  to have a better understanding of the project: A real page you’d put on   
+  your resume. GitHub README, personal site, or Notion — your choice.       
+  Include your 1-2 best projects with: deployed link (or screenshots if no  
+  longer live), tech stack, and a short retrospective for each (what you’d  
+  fix or do differently now). This should make sense to a stranger — an     
+  employer clicking your link. Walk through your best project and your      
+  skills. Show the deployed app, explain what it does, talk about what      
+  you’d improve. Frame this like something you’d send to an employer —      
+  focus on your abilities and how you’d position yourself, not on AI. This  
+  is your “hire me” reel.                after setting up the foundations   
+  of this project, we can get into the minute details. for starters, i      
+  would like this project to be in React and for styling, lets keep it      
+  pretty minimal with black, white, and green. i want it to be earthy and   
+  artistic. Create a new Vite React application named 'portfolio' with      
+  JavaScript. Install and configure Tailwind CSS and set up the default     
+  structure.                                                                
+
+⏺ I'll help you set up a portfolio site with React, Vite, and Tailwind CSS. Let me plan this out and get started.
+
+⏺ Bash(ls -la /Users/hadsthehuman/Documents/GitHub/Portfolio)
+  ⎿  total 0                                                  
+     drwxr-xr-x@  3 hadsthehuman  staff   96 Apr 25 19:03 .
+     drwxr-xr-x@ 17 hadsthehuman  staff  544 Apr 25 19:03 ..
+     drwxr-xr-x@ 10 hadsthehuman  staff  320 Apr 25 19:04 .git
+
+⏺ The directory is empty with just a git repo initialized. I'll create the Vite React app here.
+
+⏺ Bash(npm create vite@latest . -- --template react)
+  ⎿  > npx                           
+     > create-vite . --template react
+     … +10 lines (ctrl+o to expand)
+
+⏺ Bash(npm install)
+  ⎿  added 136 packages, and audited 137 packages in 9s
+
+     31 packages are looking for funding
+     … +3 lines (ctrl+o to expand)
+
+⏺ Bash(npm install tailwindcss @tailwindcss/vite)
+  ⎿  added 17 packages, and audited 154 packages in 3s
+
+     32 packages are looking for funding
+     … +3 lines (ctrl+o to expand)
+
+⏺ Now let me configure Tailwind CSS. I'll read the config files and update them.
+
+⏺ Read(vite.config.js)
+  ⎿  Read 8 lines
+
+⏺ Read(src/index.css)
+  ⎿  Read 112 lines
+
+⏺ Bash(ls -la /Users/hadsthehuman/Documents/GitHub/Portfolio/src)
+  ⎿  total 32                                                
+     drwxr-xr-x@  7 hadsthehuman  staff   224 Apr 25 19:22 .
+     drwxr-xr-x@ 13 hadsthehuman  staff   416 Apr 25 19:23 ..
+     … +5 lines (ctrl+o to expand)
+
+⏺ Let me configure everything for Tailwind CSS with your earthy color scheme.
+
+⏺ Update(vite.config.js)
+  ⎿  Added 2 lines, removed 1 line                                       
+      1  import { defineConfig } from 'vite'
+      2  import react from '@vitejs/plugin-react'
+      3 +import tailwindcss from '@tailwindcss/vite'                     
+      4  
+      5  // https://vite.dev/config/
+      6  export default defineConfig({
+      6 -  plugins: [react()],                                           
+      7 +  plugins: [react(), tailwindcss()],                            
+      8  })
+
+⏺ Write(src/index.css)
+  ⎿  Added 33 lines, removed 99 lines                                    
+        1 -:root {                                                       
+        2 -  --text: #6b6375;                                            
+        3 -  --text-h: #08060d;                                          
+        4 -  --bg: #fff;                                                 
+        5 -  --border: #e5e4e7;                                          
+        6 -  --code-bg: #f4f3ec;                                         
+        7 -  --accent: #aa3bff;                                          
+        8 -  --accent-bg: rgba(170, 59, 255, 0.1);                       
+        9 -  --accent-border: rgba(170, 59, 255, 0.5);                   
+       10 -  --social-bg: rgba(244, 243, 236, 0.5);                      
+       11 -  --shadow:                                                   
+       12 -    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0
+          - 4px 6px -2px;                                                
+        1 +@import "tailwindcss";                                        
+        2  
+       14 -  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;          
+       15 -  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;       
+       16 -  --mono: ui-monospace, Consolas, monospace;                  
+        3 +@theme {                                                      
+        4 +  --color-earth-50: #f0fdf4;                                  
+        5 +  --color-earth-100: #dcfce7;                                 
+        6 +  --color-earth-200: #bbf7d0;                                 
+        7 +  --color-earth-300: #86efac;                                 
+        8 +  --color-earth-400: #4ade80;                                 
+        9 +  --color-earth-500: #22c55e;                                 
+       10 +  --color-earth-600: #16a34a;                                 
+       11 +  --color-earth-700: #15803d;                                 
+       12 +  --color-earth-800: #166534;                                 
+       13 +  --color-earth-900: #14532d;                                 
+       14 +  --color-earth-950: #052e16;                                 
+       15  
+       18 -  font: 18px/145% var(--sans);                                
+       19 -  letter-spacing: 0.18px;                                     
+       20 -  color-scheme: light dark;                                   
+       21 -  color: var(--text);                                         
+       22 -  background: var(--bg);                                      
+       23 -  font-synthesis: none;                                       
+       24 -  text-rendering: optimizeLegibility;                         
+       25 -  -webkit-font-smoothing: antialiased;                        
+       26 -  -moz-osx-font-smoothing: grayscale;                         
+       16 +  --color-stone-50: #fafaf9;                                  
+       17 +  --color-stone-100: #f5f5f4;                                 
+       18 +  --color-stone-200: #e7e5e4;                                 
+       19 +  --color-stone-300: #d6d3d1;                                 
+       20 +  --color-stone-400: #a8a29e;                                 
+       21 +  --color-stone-500: #78716c;                                 
+       22 +  --color-stone-600: #57534e;                                 
+       23 +  --color-stone-700: #44403c;                                 
+       24 +  --color-stone-800: #292524;                                 
+       25 +  --color-stone-900: #1c1917;                                 
+       26 +  --color-stone-950: #0c0a09;                                 
+       27  
+       28 -  @media (max-width: 1024px) {                                
+       29 -    font-size: 16px;                                          
+       30 -  }                                                           
+       28 +  --font-serif: 'Georgia', 'Times New Roman', serif;          
+       29  }
+       30  
+       33 -@media (prefers-color-scheme: dark) {                         
+       34 -  :root {                                                     
+       35 -    --text: #9ca3af;                                          
+       36 -    --text-h: #f3f4f6;                                        
+       37 -    --bg: #16171d;                                            
+       38 -    --border: #2e303a;                                        
+       39 -    --code-bg: #1f2028;                                       
+       40 -    --accent: #c084fc;                                        
+       41 -    --accent-bg: rgba(192, 132, 252, 0.15);                   
+       42 -    --accent-border: rgba(192, 132, 252, 0.5);                
+       43 -    --social-bg: rgba(47, 48, 58, 0.5);                       
+       44 -    --shadow:                                                 
+       45 -      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25)
+          - 0 4px 6px -2px;                                              
+       46 -  }                                                           
+       47 -                                                              
+       48 -  #social .button-icon {                                      
+       49 -    filter: invert(1) brightness(2);                          
+       50 -  }                                                           
+       31 +html {                                                        
+       32 +  scroll-behavior: smooth;                                    
+       33  }
+       34  
+       35  body {
+       36    margin: 0;
+       37 +  font-family: system-ui, -apple-system, sans-serif;          
+       38 +  -webkit-font-smoothing: antialiased;                        
+       39 +  -moz-osx-font-smoothing: grayscale;                         
+       40  }
+       41  
+       57 -#root {                                                       
+       58 -  width: 1126px;                                              
+       59 -  max-width: 100%;                                            
+       60 -  margin: 0 auto;                                             
+       61 -  text-align: center;                                         
+       62 -  border-inline: 1px solid var(--border);                     
+       63 -  min-height: 100svh;                                         
+       64 -  display: flex;                                              
+       65 -  flex-direction: column;                                     
+       66 -  box-sizing: border-box;                                     
+       42 +::selection {                                                 
+       43 +  background-color: var(--color-earth-200);                   
+       44 +  color: var(--color-stone-900);                              
+       45  }
+       68 -                                                              
+       69 -h1,                                                           
+       70 -h2 {                                                          
+       71 -  font-family: var(--heading);                                
+       72 -  font-weight: 500;                                           
+       73 -  color: var(--text-h);                                       
+       74 -}                                                             
+       75 -                                                              
+       76 -h1 {                                                          
+       77 -  font-size: 56px;                                            
+       78 -  letter-spacing: -1.68px;                                    
+       79 -  margin: 32px 0;                                             
+       80 -  @media (max-width: 1024px) {                                
+       81 -    font-size: 36px;                                          
+       82 -    margin: 20px 0;                                           
+       83 -  }                                                           
+       84 -}                                                             
+       85 -h2 {                                                          
+       86 -  font-size: 24px;                                            
+       87 -  line-height: 118%;                                          
+       88 -  letter-spacing: -0.24px;                                    
+       89 -  margin: 0 0 8px;                                            
+       90 -  @media (max-width: 1024px) {                                
+       91 -    font-size: 20px;                                          
+       92 -  }                                                           
+       93 -}                                                             
+       94 -p {                                                           
+       95 -  margin: 0;                                                  
+       96 -}                                                             
+       97 -                                                              
+       98 -code,                                                         
+       99 -.counter {                                                    
+      100 -  font-family: var(--mono);                                   
+      101 -  display: inline-flex;                                       
+      102 -  border-radius: 4px;                                         
+      103 -  color: var(--text-h);                                       
+      104 -}                                                             
+      105 -                                                              
+      106 -code {                                                        
+      107 -  font-size: 15px;                                            
+      108 -  line-height: 135%;                                          
+      109 -  padding: 4px 8px;                                           
+      110 -  background: var(--code-bg);                                 
+      111 -}                                                             
+
+⏺ Bash(rm /Users/hadsthehuman/Documents/GitHub/Portfolio/src/App.css)
+  ⎿  (No content)
+
+⏺ Now let me create the base App.jsx with the portfolio structure.
+
+⏺ Write(src/App.jsx)
+  ⎿  Error writing file
+
+⏺ Read(src/App.jsx)
+  ⎿  Read 123 lines
+
+⏺ Write(src/App.jsx)
+  ⎿  Added 185 lines, removed 106 lines                                  
+        1 -import { useState } from 'react'                              
+        2 -import reactLogo from './assets/react.svg'                    
+        3 -import viteLogo from './assets/vite.svg'                      
+        4 -import heroImg from './assets/hero.png'                       
+        5 -import './App.css'                                            
+        6 -                                                              
+        1  function App() {
+        8 -  const [count, setCount] = useState(0)                       
+        9 -                                                              
+        2    return (
+       11 -    <>                                                        
+       12 -      <section id="center">                                   
+       13 -        <div className="hero">                                
+       14 -          <img src={heroImg} className="base" width="170" heig
+          -ht="179" alt="" />                                            
+       15 -          <img src={reactLogo} className="framework" alt="Reac
+          -t logo" />                                                    
+       16 -          <img src={viteLogo} className="vite" alt="Vite logo"
+          - />                                                           
+        3 +    <div className="min-h-screen bg-stone-50 text-stone-900"> 
+        4 +      {/* Navigation */}                                      
+        5 +      <nav className="fixed top-0 w-full bg-stone-50/90 backdr
+          +op-blur-sm border-b border-stone-200 z-50">                   
+        6 +        <div className="max-w-4xl mx-auto px-6 py-4 flex justi
+          +fy-between items-center">                                     
+        7 +          <span className="font-medium text-earth-700">Portfol
+          +io</span>                                                     
+        8 +          <div className="flex gap-6 text-sm">                
+        9 +            <a href="#about" className="hover:text-earth-600 t
+          +ransition-colors">About</a>                                   
+       10 +            <a href="#projects" className="hover:text-earth-60
+          +0 transition-colors">Projects</a>                             
+       11 +            <a href="#contact" className="hover:text-earth-600
+          + transition-colors">Contact</a>                               
+       12 +          </div>                                              
+       13          </div>
+       18 -        <div>                                                 
+       19 -          <h1>Get started</h1>                                
+       20 -          <p>                                                 
+       21 -            Edit <code>src/App.jsx</code> and save to test <co
+          -de>HMR</code>                                                 
+       14 +      </nav>                                                  
+       15 +                                                              
+       16 +      {/* Hero Section */}                                    
+       17 +      <header className="pt-32 pb-20 px-6">                   
+       18 +        <div className="max-w-4xl mx-auto">                   
+       19 +          <p className="text-earth-600 mb-2 tracking-wide text
+          +-sm uppercase">Developer</p>                                  
+       20 +          <h1 className="text-5xl md:text-6xl font-light text-
+          +stone-900 mb-6 leading-tight">                                
+       21 +            Your Name                                         
+       22 +          </h1>                                               
+       23 +          <p className="text-xl text-stone-600 max-w-2xl leadi
+          +ng-relaxed">                                                  
+       24 +            A brief tagline about who you are and what you do.
+       25 +            Keep it concise and memorable.                    
+       26            </p>
+       27          </div>
+       24 -        <button                                               
+       25 -          type="button"                                       
+       26 -          className="counter"                                 
+       27 -          onClick={() => setCount((count) => count + 1)}      
+       28 -        >                                                     
+       29 -          Count is {count}                                    
+       30 -        </button>                                             
+       28 +      </header>                                               
+       29 +                                                              
+       30 +      {/* About Section */}                                   
+       31 +      <section id="about" className="py-20 px-6 bg-white borde
+          +r-y border-stone-200">                                        
+       32 +        <div className="max-w-4xl mx-auto">                   
+       33 +          <h2 className="text-sm uppercase tracking-wide text-
+          +earth-600 mb-8">About</h2>                                    
+       34 +          <div className="grid md:grid-cols-2 gap-12">        
+       35 +            <div>                                             
+       36 +              <p className="text-stone-700 leading-relaxed mb-
+          +4">                                                           
+       37 +                Write a paragraph about your background, exper
+          +ience, and what drives you as a developer.                    
+       38 +              </p>                                            
+       39 +              <p className="text-stone-700 leading-relaxed">  
+       40 +                What makes you unique? What are you passionate
+          + about building?                                              
+       41 +              </p>                                            
+       42 +            </div>                                            
+       43 +            <div>                                             
+       44 +              <h3 className="text-stone-900 font-medium mb-4">
+          +Skills</h3>                                                   
+       45 +              <div className="flex flex-wrap gap-2">          
+       46 +                {['JavaScript', 'React', 'Node.js', 'CSS', 'Gi
+          +t'].map((skill) => (                                          
+       47 +                  <span                                       
+       48 +                    key={skill}                               
+       49 +                    className="px-3 py-1 bg-earth-50 text-eart
+          +h-700 text-sm border border-earth-200"                        
+       50 +                  >                                           
+       51 +                    {skill}                                   
+       52 +                  </span>                                     
+       53 +                ))}                                           
+       54 +              </div>                                          
+       55 +            </div>                                            
+       56 +          </div>                                              
+       57 +        </div>                                                
+       58        </section>
+       59  
+       33 -      <div className="ticks"></div>                           
+       60 +      {/* Projects Section */}                                
+       61 +      <section id="projects" className="py-20 px-6">          
+       62 +        <div className="max-w-4xl mx-auto">                   
+       63 +          <h2 className="text-sm uppercase tracking-wide text-
+          +earth-600 mb-12">Projects</h2>                                
+       64  
+       35 -      <section id="next-steps">                               
+       36 -        <div id="docs">                                       
+       37 -          <svg className="icon" role="presentation" aria-hidde
+          -n="true">                                                     
+       38 -            <use href="/icons.svg#documentation-icon"></use>  
+       39 -          </svg>                                              
+       40 -          <h2>Documentation</h2>                              
+       41 -          <p>Your questions, answered</p>                     
+       42 -          <ul>                                                
+       43 -            <li>                                              
+       44 -              <a href="https://vite.dev/" target="_blank">    
+       45 -                <img className="logo" src={viteLogo} alt="" />
+       46 -                Explore Vite                                  
+       47 -              </a>                                            
+       48 -            </li>                                             
+       49 -            <li>                                              
+       50 -              <a href="https://react.dev/" target="_blank">   
+       51 -                <img className="button-icon" src={reactLogo} a
+          -lt="" />                                                      
+       52 -                Learn more                                    
+       53 -              </a>                                            
+       54 -            </li>                                             
+       55 -          </ul>                                               
+       65 +          {/* Project 1 */}                                   
+       66 +          <article className="mb-16 pb-16 border-b border-ston
+          +e-200">                                                       
+       67 +            <div className="grid md:grid-cols-5 gap-8">       
+       68 +              <div className="md:col-span-3">                 
+       69 +                <h3 className="text-2xl font-medium text-stone
+          +-900 mb-2">Project Title</h3>                                 
+       70 +                <p className="text-stone-600 mb-4 leading-rela
+          +xed">                                                         
+       71 +                  A brief description of what this project doe
+          +s and the problem it solves.                                  
+       72 +                  Make it clear and compelling for someone who
+          + has never seen it.                                           
+       73 +                </p>                                          
+       74 +                <div className="flex gap-4 mb-6">             
+       75 +                  <a                                          
+       76 +                    href="#"                                  
+       77 +                    className="text-sm text-earth-600 hover:te
+          +xt-earth-700 underline underline-offset-4"                    
+       78 +                  >                                           
+       79 +                    Live Demo                                 
+       80 +                  </a>                                        
+       81 +                  <a                                          
+       82 +                    href="#"                                  
+       83 +                    className="text-sm text-stone-500 hover:te
+          +xt-stone-700 underline underline-offset-4"                    
+       84 +                  >                                           
+       85 +                    GitHub                                    
+       86 +                  </a>                                        
+       87 +                </div>                                        
+       88 +                <div className="flex flex-wrap gap-2">        
+       89 +                  {['React', 'Tailwind CSS', 'Node.js'].map((t
+          +ech) => (                                                     
+       90 +                    <span                                     
+       91 +                      key={tech}                              
+       92 +                      className="px-2 py-1 bg-stone-100 text-s
+          +tone-600 text-xs"                                             
+       93 +                    >                                         
+       94 +                      {tech}                                  
+       95 +                    </span>                                   
+       96 +                  ))}                                         
+       97 +                </div>                                        
+       98 +              </div>                                          
+       99 +              <div className="md:col-span-2">                 
+      100 +                <div className="bg-stone-100 aspect-video flex
+          + items-center justify-center border border-stone-200">        
+      101 +                  <span className="text-stone-400 text-sm">Scr
+          +eenshot</span>                                                
+      102 +                </div>                                        
+      103 +              </div>                                          
+      104 +            </div>                                            
+      105 +            <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+          +rder-earth-400">                                              
+      106 +              <h4 className="text-sm font-medium text-earth-70
+          +0 mb-2">Retrospective</h4>                                    
+      107 +              <p className="text-stone-600 text-sm leading-rel
+          +axed">                                                        
+      108 +                What would you do differently? What did you le
+          +arn?                                                          
+      109 +                Be honest and show your growth mindset.       
+      110 +              </p>                                            
+      111 +            </div>                                            
+      112 +          </article>                                          
+      113 +                                                              
+      114 +          {/* Project 2 */}                                   
+      115 +          <article>                                           
+      116 +            <div className="grid md:grid-cols-5 gap-8">       
+      117 +              <div className="md:col-span-3">                 
+      118 +                <h3 className="text-2xl font-medium text-stone
+          +-900 mb-2">Second Project</h3>                                
+      119 +                <p className="text-stone-600 mb-4 leading-rela
+          +xed">                                                         
+      120 +                  Another project description. Focus on impact
+          + and what you built.                                          
+      121 +                </p>                                          
+      122 +                <div className="flex gap-4 mb-6">             
+      123 +                  <a                                          
+      124 +                    href="#"                                  
+      125 +                    className="text-sm text-earth-600 hover:te
+          +xt-earth-700 underline underline-offset-4"                    
+      126 +                  >                                           
+      127 +                    Live Demo                                 
+      128 +                  </a>                                        
+      129 +                  <a                                          
+      130 +                    href="#"                                  
+      131 +                    className="text-sm text-stone-500 hover:te
+          +xt-stone-700 underline underline-offset-4"                    
+      132 +                  >                                           
+      133 +                    GitHub                                    
+      134 +                  </a>                                        
+      135 +                </div>                                        
+      136 +                <div className="flex flex-wrap gap-2">        
+      137 +                  {['Python', 'Flask', 'PostgreSQL'].map((tech
+          +) => (                                                        
+      138 +                    <span                                     
+      139 +                      key={tech}                              
+      140 +                      className="px-2 py-1 bg-stone-100 text-s
+          +tone-600 text-xs"                                             
+      141 +                    >                                         
+      142 +                      {tech}                                  
+      143 +                    </span>                                   
+      144 +                  ))}                                         
+      145 +                </div>                                        
+      146 +              </div>                                          
+      147 +              <div className="md:col-span-2">                 
+      148 +                <div className="bg-stone-100 aspect-video flex
+          + items-center justify-center border border-stone-200">        
+      149 +                  <span className="text-stone-400 text-sm">Scr
+          +eenshot</span>                                                
+      150 +                </div>                                        
+      151 +              </div>                                          
+      152 +            </div>                                            
+      153 +            <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+          +rder-earth-400">                                              
+      154 +              <h4 className="text-sm font-medium text-earth-70
+          +0 mb-2">Retrospective</h4>                                    
+      155 +              <p className="text-stone-600 text-sm leading-rel
+          +axed">                                                        
+      156 +                Share what you learned and what you would impr
+          +ove.                                                          
+      157 +              </p>                                            
+      158 +            </div>                                            
+      159 +          </article>                                          
+      160          </div>
+       57 -        <div id="social">                                     
+       58 -          <svg className="icon" role="presentation" aria-hidde
+          -n="true">                                                     
+       59 -            <use href="/icons.svg#social-icon"></use>         
+       60 -          </svg>                                              
+       61 -          <h2>Connect with us</h2>                            
+       62 -          <p>Join the Vite community</p>                      
+       63 -          <ul>                                                
+       64 -            <li>                                              
+       65 -              <a href="https://github.com/vitejs/vite" target=
+          -"_blank">                                                     
+       66 -                <svg                                          
+       67 -                  className="button-icon"                     
+       68 -                  role="presentation"                         
+       69 -                  aria-hidden="true"                          
+       70 -                >                                             
+       71 -                  <use href="/icons.svg#github-icon"></use>   
+       72 -                </svg>                                        
+       73 -                GitHub                                        
+       74 -              </a>                                            
+       75 -            </li>                                             
+       76 -            <li>                                              
+       77 -              <a href="https://chat.vite.dev/" target="_blank"
+          ->                                                             
+       78 -                <svg                                          
+       79 -                  className="button-icon"                     
+       80 -                  role="presentation"                         
+       81 -                  aria-hidden="true"                          
+       82 -                >                                             
+       83 -                  <use href="/icons.svg#discord-icon"></use>  
+       84 -                </svg>                                        
+       85 -                Discord                                       
+       86 -              </a>                                            
+       87 -            </li>                                             
+       88 -            <li>                                              
+       89 -              <a href="https://x.com/vite_js" target="_blank">
+       90 -                <svg                                          
+       91 -                  className="button-icon"                     
+       92 -                  role="presentation"                         
+       93 -                  aria-hidden="true"                          
+       94 -                >                                             
+       95 -                  <use href="/icons.svg#x-icon"></use>        
+       96 -                </svg>                                        
+       97 -                X.com                                         
+       98 -              </a>                                            
+       99 -            </li>                                             
+      100 -            <li>                                              
+      101 -              <a href="https://bsky.app/profile/vite.dev" targ
+          -et="_blank">                                                  
+      102 -                <svg                                          
+      103 -                  className="button-icon"                     
+      104 -                  role="presentation"                         
+      105 -                  aria-hidden="true"                          
+      106 -                >                                             
+      107 -                  <use href="/icons.svg#bluesky-icon"></use>  
+      108 -                </svg>                                        
+      109 -                Bluesky                                       
+      110 -              </a>                                            
+      111 -            </li>                                             
+      112 -          </ul>                                               
+      161 +      </section>                                              
+      162 +                                                              
+      163 +      {/* Contact Section */}                                 
+      164 +      <section id="contact" className="py-20 px-6 bg-stone-900
+          + text-stone-100">                                             
+      165 +        <div className="max-w-4xl mx-auto text-center">       
+      166 +          <h2 className="text-sm uppercase tracking-wide text-
+          +earth-400 mb-4">Get in Touch</h2>                             
+      167 +          <p className="text-2xl font-light mb-8">            
+      168 +            Interested in working together?                   
+      169 +          </p>                                                
+      170 +          <div className="flex justify-center gap-6">         
+      171 +            <a                                                
+      172 +              href="mailto:your@email.com"                    
+      173 +              className="px-6 py-3 bg-earth-600 hover:bg-earth
+          +-700 text-white transition-colors"                            
+      174 +            >                                                 
+      175 +              Email Me                                        
+      176 +            </a>                                              
+      177 +            <a                                                
+      178 +              href="#"                                        
+      179 +              className="px-6 py-3 border border-stone-600 hov
+          +er:border-stone-400 transition-colors"                        
+      180 +            >                                                 
+      181 +              LinkedIn                                        
+      182 +            </a>                                              
+      183 +            <a                                                
+      184 +              href="#"                                        
+      185 +              className="px-6 py-3 border border-stone-600 hov
+          +er:border-stone-400 transition-colors"                        
+      186 +            >                                                 
+      187 +              GitHub                                          
+      188 +            </a>                                              
+      189 +          </div>                                              
+      190          </div>
+      191        </section>
+      192  
+      116 -      <div className="ticks"></div>                           
+      117 -      <section id="spacer"></section>                         
+      118 -    </>                                                       
+      193 +      {/* Footer */}                                          
+      194 +      <footer className="py-6 px-6 bg-stone-950 text-stone-500
+          + text-center text-sm">                                        
+      195 +        <p>&copy; {new Date().getFullYear()} Your Name</p>    
+      196 +      </footer>                                               
+      197 +    </div>                                                    
+      198    )
+      199  }
+      200  
+
+⏺ Bash(rm -rf /Users/hadsthehuman/Documents/GitHub/Portfolio/src/assets/*)
+  ⎿  (No content)
+
+⏺ Bash(npm run build)
+  ⎿  > portfolio@0.0.0 build      
+     > vite build
+     … +9 lines (ctrl+o to expand)
+
+⏺ Your portfolio foundation is set up. Here's what I created:
+
+  Project Structure:
+  Portfolio/
+  ├── src/
+  │   ├── App.jsx        # Main portfolio layout
+  │   ├── index.css      # Tailwind + custom earth/stone colors
+  │   ├── main.jsx
+  │   └── assets/
+  ├── vite.config.js     # Vite + Tailwind plugin
+  └── package.json
+
+  Color Palette Configured:
+  - earth-* — green tones (50-950) for accents
+  - stone-* — neutral grays for backgrounds/text
+  - White backgrounds with dark text
+
+  Sections Included:
+  1. Navigation — fixed header with smooth scroll links
+  2. Hero — name, title, tagline
+  3. About — bio paragraph + skills tags
+  4. Projects — 2 project cards with:
+    - Title & description
+    - Live demo / GitHub links
+    - Tech stack badges
+    - Retrospective block (green accent)
+  5. Contact — email + social links
+  6. Footer
+
+  To preview:
+  npm run dev
+
+  The layout is minimal and employer-ready. All placeholder text (Your Name, project descriptions, links) needs to be filled in with your actual content. Let me know your project details and we can customize it further.
+
+✻ Cogitated for 2m 22s
+
+❯ now to about portion, add "Hadassah Roberts" in place of "Your Name" and  
+  add this description "I am a senior at the University of Central Florida, 
+  studying fullstack Web and App development. My goal is to connect my      
+  passion for problem solving and logic to my creative abilities as I grow  
+  in my field. I am passionate about the opportunity to create impactful    
+  changes in the world with technology. Through this, I hope to connect     
+  with other like minded individuals in the tech field and continue to      
+  contribute to the world of software development."                         
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 2 lines, removed 3 lines                                      
+      18          <div className="max-w-4xl mx-auto">
+      19            <p className="text-earth-600 mb-2 tracking-wide text-
+          sm uppercase">Developer</p>
+      20            <h1 className="text-5xl md:text-6xl font-light text-s
+          tone-900 mb-6 leading-tight">
+      21 -            Your Name                                          
+      21 +            Hadassah Roberts                                   
+      22            </h1>
+      23            <p className="text-xl text-stone-600 max-w-2xl leadin
+          g-relaxed">
+      24 -            A brief tagline about who you are and what you do. 
+      25 -            Keep it concise and memorable.                     
+      24 +            Fullstack Developer passionate about creating impac
+         +tful change through technology.                                
+      25            </p>
+      26          </div>
+      27        </header>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 4 lines                                       
+      32            <h2 className="text-sm uppercase tracking-wide text-e
+          arth-600 mb-8">About</h2>
+      33            <div className="grid md:grid-cols-2 gap-12">
+      34              <div>
+      35 -              <p className="text-stone-700 leading-relaxed mb-4
+         -">                                                             
+      36 -                Write a paragraph about your background, experi
+         -ence, and what drives you as a developer.                      
+      37 -              </p>                                             
+      35                <p className="text-stone-700 leading-relaxed">
+      39 -                What makes you unique? What are you passionate 
+         -about building?                                                
+      36 +                I am a senior at the University of Central Flor
+         +ida, studying fullstack Web and App development. My goal is to 
+         +connect my passion for problem solving and logic to my creative
+         + abilities as I grow in my field. I am passionate about the opp
+         +ortunity to create impactful changes in the world with technolo
+         +gy. Through this, I hope to connect with other like minded indi
+         +viduals in the tech field and continue to contribute to the wor
+         +ld of software development.                                    
+      37                </p>
+      38              </div>
+      39              <div>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+      188  
+      189        {/* Footer */}
+      190        <footer className="py-6 px-6 bg-stone-950 text-stone-500
+            text-center text-sm">
+      191 -        <p>&copy; {new Date().getFullYear()} Your Name</p>    
+      191 +        <p>&copy; {new Date().getFullYear()} Hadassah Roberts<
+          +/p>                                                           
+      192        </footer>
+      193      </div>
+      194    )
+
+⏺ Done. I updated three places:
+
+  1. Hero section — "Hadassah Roberts" with a condensed tagline
+  2. About section — your full description about UCF, fullstack development, and your goals
+  3. Footer — copyright with your name
+
+  Run npm run dev to preview the changes. What would you like to work on next — the projects section or updating your skills list?
+
+❯ lets work on the projects section. for the first project, i will give you 
+  a description of it, as well as a link to its github url: Build a         
+  multi-page static website for a fictional small business using Claude     
+  Code and deploy it to Netlify. This assignment practices the skills       
+  covered in Week 2: using Claude Code for development, understanding       
+  static site architecture, and deploying professional sites.               
+                                                                            
+  You will: 1. Choose a fictional business type (restaurant, salon,         
+  photography studio, etc.) 2. Build a 4-5 page static site with Claude     
+  Code 3. Deploy the site to Netlify 4. Submit your live site URL and       
+  repository link. Learning Objectives                                      
+  By completing this assignment, you will: - Practice using Claude Code to  
+  build a complete multi-file project - Understand static site structure    
+  (HTML, CSS, JavaScript files) - Deploy a site to production hosting -     
+  Create professional site content appropriate for a business - Work with   
+  responsive design and navigation.                                         
+  i chose to do a coffee shop website for the site. i                       
+  expanded on this assignment by creating a fully usable blog section where 
+  users can like blog post, add comments and like comments (along with      
+  reply to comments), share block posts to social media, and suggestes      
+  related blog posts after reading one. another feature i am proud of is    
+  the use of the Google Maps to display the location of the coffee shop.    
+  https://github.com/HadsRobs19/coffee-shop-site                            
+
+⏺ Read(src/App.jsx)
+  ⎿  Read 198 lines
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 6 lines, removed 5 lines                                      
+      62            <article className="mb-16 pb-16 border-b border-stone
+          -200">
+      63              <div className="grid md:grid-cols-5 gap-8">
+      64                <div className="md:col-span-3">
+      65 -                <h3 className="text-2xl font-medium text-stone-
+         -900 mb-2">Project Title</h3>                                   
+      65 +                <h3 className="text-2xl font-medium text-stone-
+         +900 mb-2">Coffee Shop Website</h3>                             
+      66                  <p className="text-stone-600 mb-4 leading-relax
+          ed">
+      67 -                  A brief description of what this project does
+         - and the problem it solves.                                    
+      68 -                  Make it clear and compelling for someone who 
+         -has never seen it.                                             
+      67 +                  A multi-page static website for a fictional c
+         +offee shop, built with Claude Code and deployed to Netlify. I e
+         +xpanded beyond the base requirements by implementing a fully in
+         +teractive blog system featuring post likes, nested comments wit
+         +h replies, social media sharing, and related post suggestions. 
+         +The site also integrates Google Maps API to display the shop lo
+         +cation.                                                        
+      68                  </p>
+      69                  <div className="flex gap-4 mb-6">
+      70                    <a
+     ...
+      74                      Live Demo
+      75                    </a>
+      76                    <a
+      78 -                    href="#"                                   
+      77 +                    href="https://github.com/HadsRobs19/coffee-
+         +shop-site"                                                     
+      78 +                    target="_blank"                            
+      79 +                    rel="noopener noreferrer"                  
+      80                      className="text-sm text-stone-500 hover:tex
+          t-stone-700 underline underline-offset-4"
+      81                    >
+      82                      GitHub
+      83                    </a>
+      84                  </div>
+      85                  <div className="flex flex-wrap gap-2">
+      85 -                  {['React', 'Tailwind CSS', 'Node.js'].map((te
+         -ch) => (                                                       
+      86 +                  {['HTML', 'CSS', 'JavaScript', 'Google Maps A
+         +PI'].map((tech) => (                                           
+      87                      <span
+      88                        key={tech}
+      89                        className="px-2 py-1 bg-stone-100 text-st
+          one-600 text-xs"
+
+⏺ Updated the first project with your coffee shop website details. I included:
+  - Title: Coffee Shop Website
+  - Description: Highlighting the expanded blog features (likes, nested comments, social sharing, related posts) and Google Maps integration
+  - Tech stack: HTML, CSS, JavaScript, Google Maps API
+  - GitHub: Linked to your repo
+
+  Two things still needed for this project:
+
+  1. Live Demo URL — Do you have the Netlify deployment link?
+  2. Retrospective — What would you do differently or what did you learn from building this? This is where employers see your growth mindset.
+
+  Also, do you have a screenshot of the site you'd like to use, or should we leave the placeholder for now?
+
+❯ here is the live demo: https://alchemy-brew.netlify.app/ and here is a    
+  screenshot:                                                               
+  ⎿  [Image #1]
+
+⏺ The site looks great. Let me update the project with the live demo link, add the screenshot, and update the title to "Alchemy Brew".
+
+⏺ Bash(cp "/Users/hadsthehuman/Downloads/Image 2-2-26 at 12.32 PM.png" /Users/ha
+      dsthehuman/Documents/GitHub/Portfolio/src/assets/alchemy-brew.png)
+  ⎿  Error: Exit code 1
+     cp: /Users/hadsthehuman/Downloads/Image 2-2-26 at 12.32 PM.png: No such file
+      or directory
+
+⏺ Bash(ls -la /Users/hadsthehuman/Downloads/ | grep -i "image")
+  ⎿ -rw-r--r--@   1 hadsthehuman  staff    1152844 Nov 19 07:47 ChatGPT  
+    Ima
+    ge Nov 19, 2025, 07_47_21 AM.png
+    -rw-r--r--@   1 hadsthehuman  staff    2192298 Nov 19 20:31 ChatGPT
+    Ima
+    … +13 lines (ctrl+o to expand)
+
+⏺ Bash(cp "/Users/hadsthehuman/Downloads/Image 2-2-26 at 12.32 PM.png" "/Users/h
+      adsthehuman/Documents/GitHub/Portfolio/src/assets/alchemy-brew.png")
+  ⎿  Error: Exit code 1
+     cp: /Users/hadsthehuman/Downloads/Image 2-2-26 at 12.32 PM.png: No such file
+      or directory
+
+⏺ Bash(ls -la "/Users/hadsthehuman/Downloads/" | grep "2-2-26")
+  ⎿ -rw-r--r--@   1 hadsthehuman  staff    5984213 Apr 25 19:41 Image    
+    2-2-2
+    6 at 12.32 PM.png
+
+⏺ Bash(find /Users/hadsthehuman/Downloads -name "*2-2-26*" -exec cp {}
+      /Users/hadsthehuman/Documents/GitHub/Portfolio/src/assets/alchemy-brew.png
+       \;)
+  ⎿  (No content)
+
+⏺ Bash(ls -la /Users/hadsthehuman/Documents/GitHub/Portfolio/src/assets/)
+  ⎿  total 11688                                               
+     drwxr-xr-x@ 3 hadsthehuman  staff       96 Apr 25 19:42 .
+     drwxr-xr-x@ 6 hadsthehuman  staff      192 Apr 25 19:38 ..
+     … +2 lines (ctrl+o to expand)
+
+⏺ Now let me update the App.jsx with the image import and updated links.
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 2 lines                                                       
+      1 +import alchemyBrewImg from './assets/alchemy-brew.png'          
+      2 +                                                                
+      3  function App() {
+      4    return (
+      5      <div className="min-h-screen bg-stone-50 text-stone-900">
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+      64            <article className="mb-16 pb-16 border-b border-stone
+          -200">
+      65              <div className="grid md:grid-cols-5 gap-8">
+      66                <div className="md:col-span-3">
+      67 -                <h3 className="text-2xl font-medium text-stone-
+         -900 mb-2">Coffee Shop Website</h3>                             
+      67 +                <h3 className="text-2xl font-medium text-stone-
+         +900 mb-2">Alchemy Brew</h3>                                    
+      68                  <p className="text-stone-600 mb-4 leading-relax
+          ed">
+      69                    A multi-page static website for a fictional c
+          offee shop, built with Claude Code and deployed to Netlify. I e
+          xpanded beyond the base requirements by implementing a fully in
+          teractive blog system featuring post likes, nested comments wit
+          h replies, social media sharing, and related post suggestions. 
+          The site also integrates Google Maps API to display the shop lo
+          cation.
+      70                  </p>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 8 lines, removed 4 lines                                      
+      70                  </p>
+      71                  <div className="flex gap-4 mb-6">
+      72                    <a
+      73 -                    href="#"                                   
+      73 +                    href="https://alchemy-brew.netlify.app/"   
+      74 +                    target="_blank"                            
+      75 +                    rel="noopener noreferrer"                  
+      76                      className="text-sm text-earth-600 hover:tex
+          t-earth-700 underline underline-offset-4"
+      77                    >
+      78                      Live Demo
+     ...
+       98                  </div>
+       99                </div>
+      100                <div className="md:col-span-2">
+       99 -                <div className="bg-stone-100 aspect-video flex
+          - items-center justify-center border border-stone-200">        
+      100 -                  <span className="text-stone-400 text-sm">Scr
+          -eenshot</span>                                                
+      101 -                </div>                                        
+      101 +                <img                                          
+      102 +                  src={alchemyBrewImg}                        
+      103 +                  alt="Alchemy Brew coffee shop website homepa
+          +ge"                                                           
+      104 +                  className="w-full aspect-video object-cover 
+          +object-top border border-stone-200"                           
+      105 +                />                                            
+      106                </div>
+      107              </div>
+      108              <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+           rder-earth-400">
+
+⏺ Bash(npm run build)
+  ⎿  > portfolio@0.0.0 build       
+     > vite build
+     … +10 lines (ctrl+o to expand)
+
+⏺ Done. The first project now has:
+
+  - Title: Alchemy Brew
+  - Screenshot: Your homepage image
+  - Live Demo: https://alchemy-brew.netlify.app/
+  - GitHub: https://github.com/HadsRobs19/coffee-shop-site
+  - Tech stack: HTML, CSS, JavaScript, Google Maps API
+
+  Still needed: Retrospective — What would you do differently or what did you learn? A couple sentences showing your growth mindset. For example:
+  - Challenges you overcame
+  - What you'd refactor
+  - Technologies you'd use differently next time
+
+  Once you provide that, we can move on to your second project.
+
+✻ Brewed for 55s
+
+❯ for the retrospective portion for this project, add: When using Claude    
+  Code for this project, I would do smaller tests throughout the            
+  development process instead of one large one to catch bugs earlier. I     
+  learned the iterative AI prompting route cultivates more learning         
+  opportunities and room to grow.                                           
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 2 lines                                       
+      108              <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+           rder-earth-400">
+      109                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      110                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      111 -                What would you do differently? What did you le
+          -arn?                                                          
+      112 -                Be honest and show your growth mindset.       
+      111 +                When using Claude Code for this project, I wou
+          +ld do smaller tests throughout the development process instead
+          + of one large one to catch bugs earlier. I learned the iterati
+          +ve AI prompting route cultivates more learning opportunities a
+          +nd room to grow.                                              
+      112                </p>
+      113              </div>
+      114            </article>
+
+⏺ Done. The Alchemy Brew project is now complete with your retrospective about iterative testing and AI prompting.
+
+  Ready for your second project — what would you like to showcase?
+
+❯ now for the second project, i will give you the original assignment       
+  description and build on it with what i made: A polished, deployed web    
+  application with 4-5 core features and data saved in the browser via      
+  localStorage or IndexedDB.Best for: First deployed portfolio piece,       
+  building confidence, managing a busy semester. now for what i made:       
+  Features- - Add custom micro-habits (create) Daily tracking with a        
+  checkbox per habit (update) Per-habit 7-day visualization and current     
+  streak  Overall daily progress summary (count + progress bar) Inline edit 
+  and delete habit (edit, delete) Project Description- MicroHabit helps     
+  you build better routines by tracking small, daily micro-habits. Create   
+  custom habits, mark them complete each day, and monitor short-term        
+  progress with a compact 7-day view and streak counter. Data is stored     
+  locally so your habits and daily completions save across reloads.         
+  Technology used: React, CSS, Github Copilot                               
+
+⏺ Read(src/App.jsx)
+  ⎿  Read 50 lines
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+      117            <article>
+      118              <div className="grid md:grid-cols-5 gap-8">
+      119                <div className="md:col-span-3">
+      120 -                <h3 className="text-2xl font-medium text-stone
+          --900 mb-2">Second Project</h3>                                
+      120 +                <h3 className="text-2xl font-medium text-stone
+          +-900 mb-2">MicroHabit</h3>                                    
+      121                  <p className="text-stone-600 mb-4 leading-rela
+           xed">
+      122 -                  Another project description. Focus on impact
+          - and what you built.                                          
+      122 +                  A habit tracking app that helps you build be
+          +tter routines through small, daily micro-habits. Features incl
+          +ude custom habit creation, daily checkbox tracking, per-habit 
+          +7-day visualization with streak counters, overall progress sum
+          +maries with visual progress bars, and inline edit/delete funct
+          +ionality. All data persists locally across sessions.          
+      123                  </p>
+      124                  <div className="flex gap-4 mb-6">
+      125                    <a
+     ...
+      136                    </a>
+      137                  </div>
+      138                  <div className="flex flex-wrap gap-2">
+      139 -                  {['Python', 'Flask', 'PostgreSQL'].map((tech
+          -) => (                                                        
+      139 +                  {['React', 'CSS', 'localStorage', 'GitHub Co
+          +pilot'].map((tech) => (                                       
+      140                      <span
+      141                        key={tech}
+      142                        className="px-2 py-1 bg-stone-100 text-s
+           tone-600 text-xs"
+
+⏺ Updated the second project with MicroHabit details. Still need from you:
+
+  1. GitHub URL — link to the repo
+  2. Live Demo URL — is this deployed somewhere?
+  3. Screenshot — an image of the app
+  4. Retrospective — what you learned or would do differently
+
+❯ here is the Github: https://github.com/HadsRobs19/MicroHabit-Tracker here 
+  is the live demo: https://microhabittracker.netlify.app/ retrospective:   
+  I would use an actual database instead of local storage, along with       
+  implementing user authentication to create a more personalized            
+  experience. I would want to go the social media route as well and make    
+  editing habits in the list a bit more user friendly. screenshot:          
+  ⎿  [Image #2]
+
+⏺ Bash(cp "/Users/hadsthehuman/Pictures/Photos Library.photoslibrary/originals/E
+      /ED74E75F-3703-4BE5-8137-AA99661DFB25.png"
+      "/Users/hadsthehuman/Documents/GitHub/Portfo…)
+  ⎿  (No content)
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line                                                        
+      1  import alchemyBrewImg from './assets/alchemy-brew.png'
+      2 +import microhabitImg from './assets/microhabit.png'             
+      3  
+      4  function App() {
+      5    return (
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 12 lines, removed 6 lines                                     
+      124                  </p>
+      125                  <div className="flex gap-4 mb-6">
+      126                    <a
+      127 -                    href="#"                                  
+      127 +                    href="https://microhabittracker.netlify.ap
+          +p/"                                                           
+      128 +                    target="_blank"                           
+      129 +                    rel="noopener noreferrer"                 
+      130                      className="text-sm text-earth-600 hover:te
+           xt-earth-700 underline underline-offset-4"
+      131                    >
+      132                      Live Demo
+      133                    </a>
+      134                    <a
+      133 -                    href="#"                                  
+      135 +                    href="https://github.com/HadsRobs19/MicroH
+          +abit-Tracker"                                                 
+      136 +                    target="_blank"                           
+      137 +                    rel="noopener noreferrer"                 
+      138                      className="text-sm text-stone-500 hover:te
+           xt-stone-700 underline underline-offset-4"
+      139                    >
+      140                      GitHub
+     ...
+      152                  </div>
+      153                </div>
+      154                <div className="md:col-span-2">
+      151 -                <div className="bg-stone-100 aspect-video flex
+          - items-center justify-center border border-stone-200">        
+      152 -                  <span className="text-stone-400 text-sm">Scr
+          -eenshot</span>                                                
+      153 -                </div>                                        
+      155 +                <img                                          
+      156 +                  src={microhabitImg}                         
+      157 +                  alt="MicroHabit tracker app interface"      
+      158 +                  className="w-full aspect-video object-cover 
+          +object-top border border-stone-200"                           
+      159 +                />                                            
+      160                </div>
+      161              </div>
+      162              <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+           rder-earth-400">
+      163                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      164                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      159 -                Share what you learned and what you would impr
+          -ove.                                                          
+      165 +                I would use an actual database instead of loca
+          +l storage, along with implementing user authentication to crea
+          +te a more personalized experience. I would want to go the soci
+          +al media route as well and make editing habits in the list a b
+          +it more user friendly.                                        
+      166                </p>
+      167              </div>
+      168            </article>
+
+⏺ Bash(npm run build)
+  ⎿  > portfolio@0.0.0 build       
+     > vite build
+     … +11 lines (ctrl+o to expand)
+
+⏺ Done. Both projects are now complete:
+
+  Project 1: Alchemy Brew
+  - Live: https://alchemy-brew.netlify.app/
+  - GitHub: https://github.com/HadsRobs19/coffee-shop-site
+  - Screenshot + retrospective included
+
+  Project 2: MicroHabit
+  - Live: https://microhabittracker.netlify.app/
+  - GitHub: https://github.com/HadsRobs19/MicroHabit-Tracker
+  - Screenshot + retrospective included
+
+  What's next? A few things we could work on:
+  - Skills list — update with your actual tech stack
+  - Contact section — add your real email, LinkedIn, GitHub links
+  - Navigation logo — personalize the "Portfolio" text in the nav
+
+✻ Sautéed for 42s
+
+❯ lets add Golang, C++/C, Python, Java to my skills list. i would also like 
+  you to polish my retospectives for my two projects to make them sound     
+  more professional and career ready. expand on them and let me know if you 
+  need more content to work with for expanding and polishing                
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+      42              <div>
+      43                <h3 className="text-stone-900 font-medium mb-4">S
+          kills</h3>
+      44                <div className="flex flex-wrap gap-2">
+      45 -                {['JavaScript', 'React', 'Node.js', 'CSS', 'Git
+         -'].map((skill) => (                                            
+      45 +                {['JavaScript', 'React', 'Node.js', 'Python', '
+         +Java', 'Golang', 'C/C++', 'CSS', 'Git'].map((skill) => (       
+      46                    <span
+      47                      key={skill}
+      48                      className="px-3 py-1 bg-earth-50 text-earth
+          -700 text-sm border border-earth-200"
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+      109              <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+           rder-earth-400">
+      110                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      111                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      112 -                When using Claude Code for this project, I wou
+          -ld do smaller tests throughout the development process instead
+          - of one large one to catch bugs earlier. I learned the iterati
+          -ve AI prompting route cultivates more learning opportunities a
+          -nd room to grow.                                              
+      112 +                If I were to revisit this project, I would imp
+          +lement incremental testing throughout the development cycle ra
+          +ther than consolidating testing at the end. This approach woul
+          +d allow for earlier bug detection and more efficient debugging
+          +. Working with AI-assisted development tools taught me the val
+          +ue of iterative prompting—breaking complex features into small
+          +er, focused requests not only produces better results but also
+          + deepens understanding of the underlying code and architecture
+          +.                                                             
+      113                </p>
+      114              </div>
+      115            </article>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+      162              <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+           rder-earth-400">
+      163                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      164                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      165 -                I would use an actual database instead of loca
+          -l storage, along with implementing user authentication to crea
+          -te a more personalized experience. I would want to go the soci
+          -al media route as well and make editing habits in the list a b
+          -it more user friendly.                                        
+      165 +                To scale this application, I would migrate fro
+          +m localStorage to a persistent database solution and implement
+          + user authentication for personalized, cross-device access. Fu
+          +ture iterations could incorporate social features—such as habi
+          +t sharing and accountability partners—to increase user engagem
+          +ent. I would also refine the UX for inline editing to reduce f
+          +riction and make habit management more intuitive.             
+      166                </p>
+      167              </div>
+      168            </article>
+
+⏺ Updated. Here's what changed:
+
+  Skills list now includes:
+  JavaScript, React, Node.js, Python, Java, Golang, C/C++, CSS, Git
+
+  Polished Retrospectives:
+
+  Alchemy Brew:
+  If I were to revisit this project, I would implement incremental testing throughout the development cycle rather than consolidating testing at the end. This approach would allow for earlier bug detection and more efficient debugging. Working with AI-assisted development tools taught me the value of iterative prompting—breaking complex features into smaller, focused requests not only produces better results but also deepens understanding of the underlying code and architecture.
+
+  MicroHabit:
+  To scale this application, I would migrate from localStorage to a persistent database solution and implement user authentication for personalized, cross-device access. Future iterations could incorporate social features—such as habit sharing and accountability partners—to increase user engagement. I would also refine the UX for inline editing to reduce friction and make habit management more intuitive.
+
+  The retrospectives now:
+  - Use professional language
+  - Show awareness of scalability and best practices
+  - Demonstrate growth mindset without being self-deprecating
+  - Highlight specific technical improvements
+
+  Want me to adjust the tone or add anything else? We can also move on to the contact section with your email, LinkedIn, and GitHub links.
+
+❯ great! now for my contact section i will provide the proper linking info: 
+  Email- hadassahplaysflute@gmail.com (just use a mailto: link on the       
+  onclick of the email button) LinkdIn-                                     
+  https://www.linkedin.com/in/hadassah-r/ Github-                           
+  https://github.com/HadsRobs19                                             
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 7 lines, removed 3 lines                                      
+      178            </p>
+      179            <div className="flex justify-center gap-6">
+      180              <a
+      181 -              href="mailto:your@email.com"                    
+      181 +              href="mailto:hadassahplaysflute@gmail.com"      
+      182                className="px-6 py-3 bg-earth-600 hover:bg-earth
+           -700 text-white transition-colors"
+      183              >
+      184                Email Me
+      185              </a>
+      186              <a
+      187 -              href="#"                                        
+      187 +              href="https://www.linkedin.com/in/hadassah-r/"  
+      188 +              target="_blank"                                 
+      189 +              rel="noopener noreferrer"                       
+      190                className="px-6 py-3 border border-stone-600 hov
+           er:border-stone-400 transition-colors"
+      191              >
+      192                LinkedIn
+      193              </a>
+      194              <a
+      193 -              href="#"                                        
+      195 +              href="https://github.com/HadsRobs19"            
+      196 +              target="_blank"                                 
+      197 +              rel="noopener noreferrer"                       
+      198                className="px-6 py-3 border border-stone-600 hov
+           er:border-stone-400 transition-colors"
+      199              >
+      200                GitHub
+
+⏺ Done. Contact section now links to:
+  - Email: mailto:hadassahplaysflute@gmail.com
+  - LinkedIn: https://www.linkedin.com/in/hadassah-r/
+  - GitHub: https://github.com/HadsRobs19
+
+  Run npm run dev to preview. Anything else you'd like to adjust—maybe the nav logo text or any styling tweaks?
+
+❯ for little changes, change the nav logo to my name (Hadassah Roberts) and 
+  include an image of me that i will provide:                               
+  ⎿  [Image #3]
+
+⏺ Bash(cp "/Users/hadsthehuman/Pictures/Photos Library.photoslibrary/resources/d
+      erivatives/7/73AF30A2-BB85-48C8-A294-04EBCE1D9795_1_105_c.jpeg"
+      "/Users/hadsthehuman/Do…)
+  ⎿  (No content)
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line                                                        
+      1  import alchemyBrewImg from './assets/alchemy-brew.png'
+      2  import microhabitImg from './assets/microhabit.png'
+      3 +import profileImg from './assets/profile.jpg'                   
+      4  
+      5  function App() {
+      6    return (
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 1 line, removed 1 line                                        
+       8        {/* Navigation */}
+       9        <nav className="fixed top-0 w-full bg-stone-50/90 backdro
+          p-blur-sm border-b border-stone-200 z-50">
+      10          <div className="max-w-4xl mx-auto px-6 py-4 flex justif
+          y-between items-center">
+      11 -          <span className="font-medium text-earth-700">Portfoli
+         -o</span>                                                       
+      11 +          <span className="font-medium text-earth-700">Hadassah
+         + Roberts</span>                                                
+      12            <div className="flex gap-6 text-sm">
+      13              <a href="#about" className="hover:text-earth-600 tr
+          ansition-colors">About</a>
+      14              <a href="#projects" className="hover:text-earth-600
+           transition-colors">Projects</a>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 17 lines, removed 8 lines                                     
+      19  
+      20        {/* Hero Section */}
+      21        <header className="pt-32 pb-20 px-6">
+      22 -        <div className="max-w-4xl mx-auto">                    
+      23 -          <p className="text-earth-600 mb-2 tracking-wide text-
+         -sm uppercase">Developer</p>                                    
+      24 -          <h1 className="text-5xl md:text-6xl font-light text-s
+         -tone-900 mb-6 leading-tight">                                  
+      25 -            Hadassah Roberts                                   
+      26 -          </h1>                                                
+      27 -          <p className="text-xl text-stone-600 max-w-2xl leadin
+         -g-relaxed">                                                    
+      28 -            Fullstack Developer passionate about creating impac
+         -tful change through technology.                                
+      29 -          </p>                                                 
+      22 +        <div className="max-w-4xl mx-auto flex flex-col md:flex
+         +-row items-center gap-12">                                     
+      23 +          <div className="flex-1">                             
+      24 +            <p className="text-earth-600 mb-2 tracking-wide tex
+         +t-sm uppercase">Developer</p>                                  
+      25 +            <h1 className="text-5xl md:text-6xl font-light text
+         +-stone-900 mb-6 leading-tight">                                
+      26 +              Hadassah Roberts                                 
+      27 +            </h1>                                              
+      28 +            <p className="text-xl text-stone-600 max-w-2xl lead
+         +ing-relaxed">                                                  
+      29 +              Fullstack Developer passionate about creating imp
+         +actful change through technology.                              
+      30 +            </p>                                               
+      31 +          </div>                                               
+      32 +          <div className="flex-shrink-0">                      
+      33 +            <img                                               
+      34 +              src={profileImg}                                 
+      35 +              alt="Hadassah Roberts"                           
+      36 +              className="w-48 h-48 md:w-56 md:h-56 rounded-full
+         + object-cover border-4 border-earth-200 shadow-lg"             
+      37 +            />                                                 
+      38 +          </div>                                               
+      39          </div>
+      40        </header>
+      41  
+
+⏺ Bash(npm run build)
+  ⎿  > portfolio@0.0.0 build       
+     > vite build
+     … +12 lines (ctrl+o to expand)
+
+⏺ Done. Changes made:
+
+  - Nav logo: Now shows "Hadassah Roberts"
+  - Hero section: Added your profile photo as a circular image alongside your intro text
+
+  The hero now has a nice side-by-side layout with your photo on the right (stacks vertically on mobile). Run npm run dev to preview.
+
+  Any other tweaks you'd like to make?
+
+✻ Baked for 30s
+
+❯ now i want to do a quick bug check on anything under the hood of my       
+  project. i currently dont see any errors in the inspector, but one issue  
+  i do forsee if mobile view not being responsive. make my portfolio site   
+  more responsive to different devices                                      
+
+⏺ Read(src/App.jsx)
+  ⎿  Read 225 lines
+
+⏺ Let me fix the responsive issues. I'll address navigation, hero, projects, and contact sections.
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+       7      <div className="min-h-screen bg-stone-50 text-stone-900">
+       8        {/* Navigation */}
+       9        <nav className="fixed top-0 w-full bg-stone-50/90 backdro
+          p-blur-sm border-b border-stone-200 z-50">
+      10 -        <div className="max-w-4xl mx-auto px-6 py-4 flex justif
+         -y-between items-center">                                       
+      11 -          <span className="font-medium text-earth-700">Hadassah
+         - Roberts</span>                                                
+      12 -          <div className="flex gap-6 text-sm">                 
+      10 +        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:
+         +py-4 flex justify-between items-center">                       
+      11 +          <span className="font-medium text-earth-700 text-sm s
+         +m:text-base">Hadassah Roberts</span>                           
+      12 +          <div className="flex gap-3 sm:gap-6 text-xs sm:text-s
+         +m">                                                            
+      13              <a href="#about" className="hover:text-earth-600 tr
+          ansition-colors">About</a>
+      14              <a href="#projects" className="hover:text-earth-600
+           transition-colors">Projects</a>
+      15              <a href="#contact" className="hover:text-earth-600 
+          transition-colors">Contact</a>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 6 lines, removed 6 lines                                      
+      18        </nav>
+      19  
+      20        {/* Hero Section */}
+      21 -      <header className="pt-32 pb-20 px-6">                    
+      22 -        <div className="max-w-4xl mx-auto flex flex-col md:flex
+         --row items-center gap-12">                                     
+      21 +      <header className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:
+         +px-6">                                                         
+      22 +        <div className="max-w-4xl mx-auto flex flex-col-reverse
+         + md:flex-row items-center gap-8 md:gap-12 text-center md:text-l
+         +eft">                                                          
+      23            <div className="flex-1">
+      24 -            <p className="text-earth-600 mb-2 tracking-wide tex
+         -t-sm uppercase">Developer</p>                                  
+      25 -            <h1 className="text-5xl md:text-6xl font-light text
+         --stone-900 mb-6 leading-tight">                                
+      24 +            <p className="text-earth-600 mb-2 tracking-wide tex
+         +t-xs sm:text-sm uppercase">Developer</p>                       
+      25 +            <h1 className="text-3xl sm:text-5xl md:text-6xl fon
+         +t-light text-stone-900 mb-4 sm:mb-6 leading-tight">            
+      26                Hadassah Roberts
+      27              </h1>
+      28 -            <p className="text-xl text-stone-600 max-w-2xl lead
+         -ing-relaxed">                                                  
+      28 +            <p className="text-base sm:text-xl text-stone-600 m
+         +ax-w-2xl leading-relaxed mx-auto md:mx-0">                     
+      29                Fullstack Developer passionate about creating imp
+          actful change through technology.
+      30              </p>
+      31            </div>
+     ...
+      33              <img
+      34                src={profileImg}
+      35                alt="Hadassah Roberts"
+      36 -              className="w-48 h-48 md:w-56 md:h-56 rounded-full
+         - object-cover border-4 border-earth-200 shadow-lg"             
+      36 +              className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h
+         +-56 rounded-full object-cover border-4 border-earth-200 shadow-
+         +lg"                                                            
+      37              />
+      38            </div>
+      39          </div>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+      40        </header>
+      41  
+      42        {/* About Section */}
+      43 -      <section id="about" className="py-20 px-6 bg-white border
+         --y border-stone-200">                                          
+      43 +      <section id="about" className="py-12 sm:py-20 px-4 sm:px-
+         +6 bg-white border-y border-stone-200">                         
+      44          <div className="max-w-4xl mx-auto">
+      45 -          <h2 className="text-sm uppercase tracking-wide text-e
+         -arth-600 mb-8">About</h2>                                      
+      46 -          <div className="grid md:grid-cols-2 gap-12">         
+      45 +          <h2 className="text-sm uppercase tracking-wide text-e
+         +arth-600 mb-6 sm:mb-8">About</h2>                              
+      46 +          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+      47              <div>
+      48                <p className="text-stone-700 leading-relaxed">
+      49                  I am a senior at the University of Central Flor
+          ida, studying fullstack Web and App development. My goal is to 
+          connect my passion for problem solving and logic to my creative
+           abilities as I grow in my field. I am passionate about the opp
+          ortunity to create impactful changes in the world with technolo
+          gy. Through this, I hope to connect with other like minded indi
+          viduals in the tech field and continue to contribute to the wor
+          ld of software development.
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 6 lines, removed 6 lines                                      
+      67        </section>
+      68  
+      69        {/* Projects Section */}
+      70 -      <section id="projects" className="py-20 px-6">           
+      70 +      <section id="projects" className="py-12 sm:py-20 px-4 sm:
+         +px-6">                                                         
+      71          <div className="max-w-4xl mx-auto">
+      72 -          <h2 className="text-sm uppercase tracking-wide text-e
+         -arth-600 mb-12">Projects</h2>                                  
+      72 +          <h2 className="text-sm uppercase tracking-wide text-e
+         +arth-600 mb-8 sm:mb-12">Projects</h2>                          
+      73  
+      74            {/* Project 1 */}
+      75 -          <article className="mb-16 pb-16 border-b border-stone
+         --200">                                                         
+      76 -            <div className="grid md:grid-cols-5 gap-8">        
+      77 -              <div className="md:col-span-3">                  
+      78 -                <h3 className="text-2xl font-medium text-stone-
+         -900 mb-2">Alchemy Brew</h3>                                    
+      75 +          <article className="mb-12 sm:mb-16 pb-12 sm:pb-16 bor
+         +der-b border-stone-200">                                       
+      76 +            <div className="grid md:grid-cols-5 gap-6 md:gap-8"
+         +>                                                              
+      77 +              <div className="md:col-span-3 order-2 md:order-1"
+         +>                                                              
+      78 +                <h3 className="text-xl sm:text-2xl font-medium 
+         +text-stone-900 mb-2">Alchemy Brew</h3>                         
+      79                  <p className="text-stone-600 mb-4 leading-relax
+          ed">
+      80                    A multi-page static website for a fictional c
+          offee shop, built with Claude Code and deployed to Netlify. I e
+          xpanded beyond the base requirements by implementing a fully in
+          teractive blog system featuring post likes, nested comments wit
+          h replies, social media sharing, and related post suggestions. 
+          The site also integrates Google Maps API to display the shop lo
+          cation.
+      81                  </p>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+      108                    ))}
+      109                  </div>
+      110                </div>
+      111 -              <div className="md:col-span-2">                 
+      111 +              <div className="md:col-span-2 order-1 md:order-2
+          +">                                                            
+      112                  <img
+      113                    src={alchemyBrewImg}
+      114                    alt="Alchemy Brew coffee shop website homepa
+           ge"
+      115 -                  className="w-full aspect-video object-cover 
+          -object-top border border-stone-200"                           
+      115 +                  className="w-full aspect-video object-cover 
+          +object-top border border-stone-200 rounded-sm"                
+      116                  />
+      117                </div>
+      118              </div>
+      119 -            <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+          -rder-earth-400">                                              
+      119 +            <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-earth-5
+          +0 border-l-2 border-earth-400">                               
+      120                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      121                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      122                  If I were to revisit this project, I would imp
+           lement incremental testing throughout the development cycle ra
+           ther than consolidating testing at the end. This approach woul
+           d allow for earlier bug detection and more efficient debugging
+           . Working with AI-assisted development tools taught me the val
+           ue of iterative prompting—breaking complex features into small
+           er, focused requests not only produces better results but also
+            deepens understanding of the underlying code and architecture
+           .
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+      126  
+      127            {/* Project 2 */}
+      128            <article>
+      129 -            <div className="grid md:grid-cols-5 gap-8">       
+      130 -              <div className="md:col-span-3">                 
+      131 -                <h3 className="text-2xl font-medium text-stone
+          --900 mb-2">MicroHabit</h3>                                    
+      129 +            <div className="grid md:grid-cols-5 gap-6 md:gap-8
+          +">                                                            
+      130 +              <div className="md:col-span-3 order-2 md:order-1
+          +">                                                            
+      131 +                <h3 className="text-xl sm:text-2xl font-medium
+          + text-stone-900 mb-2">MicroHabit</h3>                         
+      132                  <p className="text-stone-600 mb-4 leading-rela
+           xed">
+      133                    A habit tracking app that helps you build be
+           tter routines through small, daily micro-habits. Features incl
+           ude custom habit creation, daily checkbox tracking, per-habit 
+           7-day visualization with streak counters, overall progress sum
+           maries with visual progress bars, and inline edit/delete funct
+           ionality. All data persists locally across sessions.
+      134                  </p>
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 3 lines, removed 3 lines                                      
+      161                    ))}
+      162                  </div>
+      163                </div>
+      164 -              <div className="md:col-span-2">                 
+      164 +              <div className="md:col-span-2 order-1 md:order-2
+          +">                                                            
+      165                  <img
+      166                    src={microhabitImg}
+      167                    alt="MicroHabit tracker app interface"
+      168 -                  className="w-full aspect-video object-cover 
+          -object-top border border-stone-200"                           
+      168 +                  className="w-full aspect-video object-cover 
+          +object-top border border-stone-200 rounded-sm"                
+      169                  />
+      170                </div>
+      171              </div>
+      172 -            <div className="mt-8 p-6 bg-earth-50 border-l-2 bo
+          -rder-earth-400">                                              
+      172 +            <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-earth-5
+          +0 border-l-2 border-earth-400">                               
+      173                <h4 className="text-sm font-medium text-earth-70
+           0 mb-2">Retrospective</h4>
+      174                <p className="text-stone-600 text-sm leading-rel
+           axed">
+      175                  To scale this application, I would migrate fro
+           m localStorage to a persistent database solution and implement
+            user authentication for personalized, cross-device access. Fu
+           ture iterations could incorporate social features—such as habi
+           t sharing and accountability partners—to increase user engagem
+           ent. I would also refine the UX for inline editing to reduce f
+           riction and make habit management more intuitive.
+
+⏺ Update(src/App.jsx)
+  ⎿  Added 6 lines, removed 6 lines                                      
+      180        </section>
+      181  
+      182        {/* Contact Section */}
+      183 -      <section id="contact" className="py-20 px-6 bg-stone-900
+          - text-stone-100">                                             
+      183 +      <section id="contact" className="py-12 sm:py-20 px-4 sm:
+          +px-6 bg-stone-900 text-stone-100">                            
+      184          <div className="max-w-4xl mx-auto text-center">
+      185            <h2 className="text-sm uppercase tracking-wide text-
+           earth-400 mb-4">Get in Touch</h2>
+      186 -          <p className="text-2xl font-light mb-8">            
+      186 +          <p className="text-xl sm:text-2xl font-light mb-6 sm
+          +:mb-8">                                                       
+      187              Interested in working together?
+      188            </p>
+      189 -          <div className="flex justify-center gap-6">         
+      189 +          <div className="flex flex-col sm:flex-row justify-ce
+          +nter items-center gap-3 sm:gap-6">                            
+      190              <a
+      191                href="mailto:hadassahplaysflute@gmail.com"
+      192 -              className="px-6 py-3 bg-earth-600 hover:bg-earth
+          --700 text-white transition-colors"                            
+      192 +              className="w-full sm:w-auto px-6 py-3 bg-earth-6
+          +00 hover:bg-earth-700 text-white transition-colors text-center
+          +"                                                             
+      193              >
+      194                Email Me
+      195              </a>
+     ...
+      197                href="https://www.linkedin.com/in/hadassah-r/"
+      198                target="_blank"
+      199                rel="noopener noreferrer"
+      200 -              className="px-6 py-3 border border-stone-600 hov
+          -er:border-stone-400 transition-colors"                        
+      200 +              className="w-full sm:w-auto px-6 py-3 border bor
+          +der-stone-600 hover:border-stone-400 transition-colors text-ce
+          +nter"                                                         
+      201              >
+      202                LinkedIn
+      203              </a>
+     ...
+      205                href="https://github.com/HadsRobs19"
+      206                target="_blank"
+      207                rel="noopener noreferrer"
+      208 -              className="px-6 py-3 border border-stone-600 hov
+          -er:border-stone-400 transition-colors"                        
+      208 +              className="w-full sm:w-auto px-6 py-3 border bor
+          +der-stone-600 hover:border-stone-400 transition-colors text-ce
+          +nter"                                                         
+      209              >
+      210                GitHub
+      211              </a>
+
+⏺ Read(index.html)
+  ⎿  Read 14 lines
+
+⏺ Update(index.html)
+  ⎿  Added 1 line, removed 1 line                                        
+       4      <meta charset="UTF-8" />
+       5      <link rel="icon" type="image/svg+xml" href="/favicon.svg" /
+          >
+       6      <meta name="viewport" content="width=device-width, initial-
+          scale=1.0" />
+       7 -    <title>portfolio</title>                                   
+       7 +    <title>Hadassah Roberts | Developer Portfolio</title>      
+       8    </head>
+       9    <body>
+      10      <div id="root"></div>
+
+⏺ Bash(npm run build)
+  ⎿  > portfolio@0.0.0 build       
+     > vite build
+     … +12 lines (ctrl+o to expand)
+
+⏺ All responsive fixes complete. Here's what I updated:
+
+  Navigation:
+  - Smaller padding and text on mobile
+  - Reduced gap between nav links
+
+  Hero Section:
+  - Profile photo appears first on mobile (above text)
+  - Centered text on mobile, left-aligned on desktop
+  - Scaled down heading sizes (3xl → 5xl → 6xl)
+  - Smaller profile image on mobile
+
+  Projects Section:
+  - Screenshot appears above text on mobile (order swap)
+  - Reduced spacing and padding
+  - Smaller headings on mobile
+
+  Contact Section:
+  - Buttons stack vertically on mobile, row on desktop
+  - Full-width buttons on mobile for easy tapping
+
+  Also Updated:
+  - Page title: "Hadassah Roberts | Developer Portfolio"
+  - Viewport meta tag already present (Vite default)
+
+  Run npm run dev and test with browser dev tools (toggle device toolbar) to preview different screen sizes. Anything else you'd like to adjust?
+
+✻ Cooked for 2m 10s
+
+
+
